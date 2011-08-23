@@ -13,7 +13,7 @@ setup.exeを起動して次のパッケージインストールしてくださ�
 #. "All:Devel"の中にある"gcc: C compiler upgrade helper"
 #. "All:Graphics"にある"jpeg: A library for manipulating JPEG image format files"
 #. "All:Graphics"にある"lcms: Little color management engine - (Python bindings)"
-#. "All:X11"にある"freetype2: High-quality software font engine (runtime library)"
+#. "All:X11"にある"libfreetype6: High-quality software font engine (runtime library)"
 
 pythonパッケージの追加
 ~~~~~~~~~~~~~~~~~~~~~~
