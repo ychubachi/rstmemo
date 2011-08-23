@@ -1,0 +1,27 @@
+{
+  "embeddedFonts" :[[
+    "ipag.ttf",
+    "ipagp.ttf",
+    "ipam.ttf",
+    "ipamp.ttf"
+  ]],
+  "fontsAlias" : {
+    "stdFont": "IPAPGothic",
+    "stdBold": "IPAPGothic",
+    "stdItalic": "IPAPGothic",
+    "stdBoldItalic": "IPAPGothic",
+    "stdMono": "IPAPGothic",
+    "stdMonoBold": "IPAPGothic",
+    "stdSanBold": "IPAPGothic",
+    "stdSansBold": "IPAPGothic"
+  },
+  "styles" : [
+    ["base" , {
+      "wordWrap": "CJK",
+      "kerning" : true
+    }],
+    ["literal" , {
+      "wordWrap": "None"
+    }]
+  ]
+}

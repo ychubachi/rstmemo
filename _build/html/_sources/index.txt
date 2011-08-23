@@ -6,20 +6,18 @@
 reStructuredTextで快適Web生活
 =============================
 
-Contents:
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :numbered:
 
-   test
-   epub
-   eclipse
+   overview
+   docutils
+   rst2pdf
+   sphinx
 
-Indices and tables
-==================
+.. toctree::
+   :hidden:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   replace
 
+`public link to this page <http://dl.dropbox.com/u/1312957/sphinx/rstmemo/_build/html/index.html>`_

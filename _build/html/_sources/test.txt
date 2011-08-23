@@ -1,5 +1,190 @@
+.. |user home| replace:: C:\\Users\\<name>\\
+.. |gnupack|   replace:: C:\\Users\\<name>\\gnupack_basic-7.00
+.. |cygwin|    replace:: C:\\Users\\yc\\gnupack_basic-7.00\\app\\cygwin\\cygwin
+.. |cygwin package| replace:: C:\\Users\\<name>\\gnupack_basic-7.00\\package
+.. |mintty|    replace:: C:\\Users\\<name>\\gnupack_basic-7.00\\mintty.exe
+
 reStructuredTextで快適Web生活
 =============================
+
+gnupack環境をインストールする
+-----------------------------
+
+簡単にcygwin環境とemacs等をインストールできるパッケージ，grupack [#f1]_ を
+インストールします．
+
+ここでは，ユーザのホームディレクトリ（ |user home| ） [#f2]_ にインストールします．
+
+#. `gnupack-basic-7.00.exe`_ をダウンロードします
+#. ダブルクリックして実行します
+#. "解凍先"に |user home| を指定します
+
+新たに， |gnupack| ディレクトリができ，その下にファイルが展開されますので，確認してください．
+
+.. _gnupack-basic-7.00.exe: http://sourceforge.jp/projects/gnupack/downloads/52709/gnupack_basic-7.00.exe/
+.. _setup.exe:  http://cygwin.com/setup.exe
+.. rubric:: 脚注
+
+.. [#f1] なお，詳しい使い方は
+   http://gnupack.sourceforge.jp/docs/current/UsersGuide.html を参照し
+   てください．basic版の他にdevel版がありますが，そちらに付属するgccは
+   使わないので，basic版を利用します．
+.. [#f2] \\ は「￥」記号に読み替えてください．
+   *<name>* の部分は，あなたのログイン名に置き換えてください.
+
+cygwin用パッケージ管理ツール
+----------------------------
+
+cygwinにパッケージを追加するために， setup.exeというファイルをダウンロードします．このツールを使って以下のパッケージを追加します．
+
+- Python
+- curl
+- gcc
+
+準備
+~~~~
+
+#. `setup.exe`_ をダウンロードします．
+#. ダウンロードしたファイルを |gnupack| ディレクトリにコピーしてください．
+#. また，同じ場所に"package"という名前でフォルダを作成してください．
+
+setup.exeの設定
+~~~~~~~~~~~~~~~
+
+#. setup.exeを実行します．
+#. "次へ"でページをめくり，"Cygwin Setup - Choose Installation Directory"画面に進みます．
+#. "Root Directory"に |cygwin| を指定してください．
+#. "次へ"でページをめくり，"Cygwin Setup - Select Local Package Directory"画面に進みます．
+#. "Local Package Directory"に |cygwin package| を指定してください．
+
+パッケージの追加
+~~~~~~~~~~~~~~~~
+
+#. "次へ"でページをめくり，"Cygwin Setup - Select Packages"画面に進みます．
+#. "Search"に"python"と入力してください（画面が更新されるまでに若干ラグがあります）．
+#. "All:Interpreters"の中にある"python: Python language interpreter"の行にある"Skip"をクリックします（表示がバージョン番号に変わります）．
+#. "Search"に"curl"と入力してください．
+#. "All:Net"の中にある"curl: Multi-protocol file transfer command-line tool"の行にある"Skip"をクリックします（表示がバージョン番号に変わります）．
+#. "Search"に"gcc"と入力してください．
+#. "Devel"の中にある"gcc: C compiler upgrade helper"の行にある"Skip"をクリックします（表示がバージョン番号に変わります）．
+#. "次へ"でページをめくり，"Cygwin Setup"画面に進みます．
+#. ダウンロードが終了すると，"Cygwin Setup - Installation Status and CReate Icons"画面がでます．
+#. "Crate icon on Desktop"のチェックは外して，"完了"を押してください．
+
+python用パッケージ管理ツール
+----------------------------
+
+#. |mintty| を起動して，コマンドプロンプトを表示させます．
+#. 次のコマンドを実行してください．
+
+::
+
+  # curl -O http://peak.telecommunity.com/dist/ez_setup.py
+  # python ez_setup.py
+
+rst2pdfのインストール
+---------------------
+
+cygwinパッケージの追加
+~~~~~~~~~~~~~~~~~~~~~~
+- jpeg -> All:Graphics jpeg: A library for manipulating JPEG image format files
+- lcms -> All:Graphics lcms: Little color management engine - (Python bindings)
+- freetype -> freetype2: High-quality software font engine (sources)
+
+
+#. |mintty| を起動して，コマンドプロンプトを表示させます．
+#. 次のコマンドを実行してください．
+
+::
+
+  # easy_install PIL
+  # easy_install reportlab
+  # easy_install rst2pdf
+
+コンパイル中に以下のエラーになる場合があります．
+
+::
+
+  *** fatal error - unable to remap \\?\C:\Users\yc\gnupack_basic-7.00\app\cygwin\cygwin\lib\python2.6\lib-dynload\time.dll to same address as parent: 0x3D0000 != 0x3F0000
+  Stack trace:
+  Frame     Function  Args
+  00224DF8  6102796B  (00224DF8, 00000000, 00000000, 00000000)
+  002250E8  6102796B  (6117EC60, 00008000, 00000000, 61180977)
+  00226118  61004F1B  (611A7FAC, 612483E4, 003D0000, 003F0000)
+  End of stack trace
+  1 [main] python 6956 fork: child 7068 - died waiting for dll loading, errno 11
+  error: Setup script exited with error: Resource temporarily unavailable
+
+その場合，|cygwin| の下にある\\bin\\ash.exeを起動して，次のコマンドを入力します．
+（参考 http://d.hatena.ne.jp/haradats/20080119/p4 ）
+
+::
+
+  $ /bin/rebaseall
+  $ exit
+
+:: rest2pdf.pyの修正
+
+"/usr/lib/python2.6/site-packages/rst2pdf-0.16-py2.6.egg/rst2pdf/createpdf.py"
+
+169行目
+
+::
+
+            get_language (self.language, None)
+
+を以下の通り変更．
+
+::
+
+            get_language (self.language, None)
+
+249行目
+
+::
+
+                self.docutils_languages[lang] = get_language(lang)
+
+を
+
+::
+
+                self.docutils_languages[lang] = get_language(lang, None)
+
+
+
+テスト
+~~~~~~
+test.rst
+
+::
+
+   AAAA
+   ====
+
+   - x
+   - y
+   - z
+
+PDFに返還すr
+
+::
+
+  rst2pdf test.rst
+
+->えらーーーーーーー
+
+- http://d.hatena.ne.jp/shinriyo/20110810
+
+#249,169を修正した．
+
+英語は通るように．
+
+- http://d.hatena.ne.jp/w650/20100216/1266287625
+
+
+OLD
+===
 
 editing master
 
@@ -17,39 +202,11 @@ ToDo
 
 gnupack環境
 -----------
-1. gnupack http://gnupack.sourceforge.jp/docs/current/UsersGuide.html
-
-gnupackはアーカイブ展開のみで即座に cygwinと emacsが使える環境を提供します．
 
 
-Sphinxのインストール
---------------------
 
-Dropboxにフォルダを作り， リンクを張る
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-::
-
-  # mkdir /c/Users/yc/My\ Documents/My\ Dropbox/Public public
-  # ln -s  /c/Users/yc/My\ Documents/My\ Dropbox/Public public
-
-Pythonのインストール
-~~~~~~~~~~~~~~~~~~~~
-::
-
-  # apt-cyg install python
-
-curlのインストール
-~~~~~~~~~~~~~~~~~~
-::
-
-  # apt-cyg install curl
-
-easy_installのインストール
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-::
-
-  # curl -O http://peak.telecommunity.com/dist/ez_setup.py
-  # ./ez_setup.py
+Sphinx
+------
 
 Sphinxのインストール
 ~~~~~~~~~~~~~~~~~~~~
@@ -58,6 +215,14 @@ http://sphinx-users.jp/gettingstarted/install_windows.html#sphinx
 ::
 
   # easy_install sphinx
+
+
+Dropboxにフォルダを作り， リンクを張る
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+  # mkdir /c/Users/yc/My\ Documents/My\ Dropbox/Public public
+  # ln -s  /c/Users/yc/My\ Documents/My\ Dropbox/Public public
 
 
 reStructuredTextの情報
@@ -95,3 +260,14 @@ Eclipse
 =======
 
 - http://resteditor.sourceforge.net/
+
+PDF
+===
+
+- http://d.hatena.ne.jp/hokorobi/20101031/1288513452
+- Python Imaging Library (PIL) http://www.pythonware.com/products/pil/ 
+- Imaging-1.1.7.tar.gzをDL
+- python setup.py install
+
+MEMO
+====

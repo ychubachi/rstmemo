@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Sphinx &mdash; reStructuredTextで快適Web生活 v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="reStructuredTextで快適Web生活 v0.1 documentation" href="index.html" />
+    <link rel="next" title="5. このページへのURL" href="url.html" />
+    <link rel="prev" title="3. PDFを作成する" href="rst2pdf.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>reStructuredTextで快適Web生活 v0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>4. Sphinx</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="rst2pdf.html">3. PDFを作成する</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="url.html">5. このページへのURL</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="sphinx">
+<h1>4. Sphinx<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.1. Sphinxのインストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># easy_install sphinx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>4.2. 作業フォルダの作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&#8220;sphinx&#8221;という名前のフォルダを作成します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># mkdir ~/sphinx</span>
+<span class="c"># cd ~/sphinx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>4.3. 初期化<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sphinxの初期設定を行います．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sphinx-quickstart</span>
+</pre></div>
+</div>
+<p>質問項目が順番に出てきますので，答えてください．最低限，次の項目を入力してあとはデフォルトでよいでしょう．</p>
+<ul class="simple">
+<li>Project name</li>
+<li>Author name(s): User Name</li>
+<li>Project version: 0.1</li>
+</ul>
+<p>以下の例では，これらのほか</p>
+<ul class="simple">
+<li>Separate source and build directories (y/N) [n]:</li>
+</ul>
+<p>のみ「y」と答えています．</p>
+<div class="highlight-python"><pre>Welcome to the Sphinx 1.0.7 quickstart utility.
+
+Please enter values for the following settings (just press Enter to
+accept a default value, if one is given in brackets).
+
+Enter the root path for documentation.
+&gt; Root path for the documentation [.]:
+
+You have two options for placing the build directory for Sphinx output.
+Either, you use a directory "_build" within the root path, or you separate
+"source" and "build" directories within the root path.
+&gt; Separate source and build directories (y/N) [n]: y
+
+Inside the root directory, two more directories will be created; "_templates"
+for custom HTML templates and "_static" for custom stylesheets and other static
+files. You can enter another prefix (such as ".") to replace the underscore.
+&gt; Name prefix for templates and static dir [_]:
+
+The project name will occur in several places in the built documentation.
+&gt; Project name: My first sphinx
+&gt; Author name(s): User Name
+
+Sphinx has the notion of a "version" and a "release" for the
+software. Each version can have multiple releases. For example, for
+Python the version is something like 2.5 or 3.0, while the release is
+something like 2.5.1 or 3.0a1.  If you don't need this dual structure,
+just set both to the same value.
+&gt; Project version: 0.1
+&gt; Project release [0.1]:
+
+The file name suffix for source files. Commonly, this is either ".txt"
+or ".rst".  Only files with this suffix are considered documents.
+&gt; Source file suffix [.rst]:
+
+One document is special in that it is considered the top node of the
+"contents tree", that is, it is the root of the hierarchical structure
+of the documents. Normally, this is "index", but if your "index"
+document is a custom template, you can also set this to another filename.
+&gt; Name of your master document (without suffix) [index]:
+
+Sphinx can also add configuration for epub output:
+&gt; Do you want to use the epub builder (y/N) [n]:
+
+Please indicate if you want to use one of the following Sphinx extensions:
+&gt; autodoc: automatically insert docstrings from modules (y/N) [n]:
+&gt; doctest: automatically test code snippets in doctest blocks (y/N) [n]:
+&gt; intersphinx: link between Sphinx documentation of different projects (y/N) [n]:
+&gt; todo: write "todo" entries that can be shown or hidden on build (y/N) [n]:
+&gt; coverage: checks for documentation coverage (y/N) [n]:
+&gt; pngmath: include math, rendered as PNG images (y/N) [n]:
+&gt; jsmath: include math, rendered in the browser by JSMath (y/N) [n]:
+&gt; ifconfig: conditional inclusion of content based on config values (y/N) [n]:
+&gt; viewcode: include links to the source code of documented Python objects (y/N) [n]:
+
+A Makefile and a Windows command file can be generated for you so that you
+only have to run e.g. `make html' instead of invoking sphinx-build
+directly.
+&gt; Create Makefile? (Y/n) [y]:
+&gt; Create Windows command file? (Y/n) [y]:
+
+Finished: An initial directory structure has been created.
+
+You should now populate your master file ./source/index.rst and create other documentation
+source files. Use the Makefile to build the docs, like so:
+   make builder
+   where "builder" is one of the supported builders, e.g. html, latex or linkcheck.</pre>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4.4. 日本語化する設定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>設定ファイルをエディタで開きます．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># emacs ~/sphinx/source/conf.py &amp;</span>
+</pre></div>
+</div>
+<p>次の通り，languageをja（日本語）にします．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># The language for content autogenerated by Sphinx. Refer to documentation</span>
+<span class="c"># for a list of supported languages.</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s">&#39;ja&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.5. 文書を生成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="html">
+<h3>4.5.1. HTMLを生成する<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のコマンドでhtmlを生成することができます．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># make html</span>
+</pre></div>
+</div>
+<p>lsコマンドで確認してみましょう．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># ls ~/spinx/_build/html</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pdf">
+<h3>4.5.2. PDFを生成する<a class="headerlink" href="#pdf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>config.pyのextensionsを次の通り変更します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add any Sphinx extension module names here, as strings. They can be extensions</span>
+<span class="c"># coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom ones.</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;rst2pdf.pdfbuilder&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>config.pyに次の設定を追加します．</p>
+<div class="highlight-python"><pre>-- Options for PDF output --------------------------------------------------
+
+# Grouping the document tree into PDF files. List of tuples
+# (source start file, target name, title, author, options).
+#
+# If there is more than one author, separate them with \\.
+# For example: r'Guido van Rossum\\Fred L. Drake, Jr., editor'
+#
+# The options element is a dictionary that lets you override
+# this config per-document.
+# For example,
+# ('index', u'MyProject', u'My Project', u'Author Name',
+#  dict(pdf_compressed = True))
+# would mean that specific document would be compressed
+# regardless of the global pdf_compressed setting.
+
+pdf_documents = [
+('index', u'MyProject', u'My Project', u'Author Name'),
+]
+
+# A comma-separated list of custom stylesheets. Example:
+pdf_stylesheets = ['sphinx','ja']
+
+# Create a compressed PDF
+# Use True/False or 1/0
+# Example: compressed=True
+#pdf_compressed = False
+
+# A colon-separated list of folders to search for fonts. Example:
+pdf_font_path = ['~/fonts']
+
+# Language to be used for hyphenation support
+pdf_language = "ja"
+
+# Mode for literal blocks wider than the frame. Can be
+# overflow, shrink or truncate
+#pdf_fit_mode = "shrink"
+
+# Section level that forces a break page.
+# For example: 1 means top-level sections start in a new page
+# 0 means disabled
+#pdf_break_level = 0
+
+# When a section starts in a new page, force it to be 'even', 'odd',
+# or just use 'any'
+#pdf_breakside = 'any'
+
+# Insert footnotes where they are defined instead of
+# at the end.
+#pdf_inline_footnotes = True
+
+# verbosity level. 0 1 or 2
+#pdf_verbosity = 0
+
+# If false, no index is generated.
+#pdf_use_index = True
+
+# If false, no modindex is generated.
+#pdf_use_modindex = True
+
+# If false, no coverpage is generated.
+#pdf_use_coverpage = True
+
+# Documents to append as an appendix to all manuals.
+#pdf_appendices = []
+
+# Enable experimental feature to split table cells. Use it
+# if you get "DelayedTable too big" errors
+#pdf_splittables = False
+
+# Set the default DPI for images
+#pdf_default_dpi = 72</pre>
+</div>
+<p>Makefileを編集します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># emacs ~/sphinx/Makefile &amp;</span>
+</pre></div>
+</div>
+<p>次の設定を追加します．</p>
+<div class="highlight-python"><pre>pdf:
+        $(SPHINXBUILD) -b pdf $(ALLSPHINXOPTS) $(BUILDDIR)/pdf
+        @echo
+        @echo "Build finished. The PDF files are in $(BUILDDIR)/pdf.</pre>
+</div>
+<p>前節で作成したrst2pdf用スタイルファイルja.jsonをコピーします．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cp ~/ja.json ~/sphinx/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="latex">
+<h3>4.5.3. LaTeXを生成する<a class="headerlink" href="#latex" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>docutilsを修正します．</p>
+<div class="highlight-python"><pre>emacs /usr/lib/python2.6/site-packages/docutils-0.8-py2.6.egg/docutils/writers/latex2e/__init__.py &amp;</pre>
+</div>
+<p>361行目を次の通り変更します．</p>
+<div class="highlight-python"><pre>def __init__(self, language_code, reporter = None):</pre>
+</div>
+<p>414行目以降を次の通り変更します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_language</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">language_code</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return TeX language name for `language_code`&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">language_code</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">language_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">language_code</span>
+</pre></div>
+</div>
+<p>latexの生成</p>
+<div class="highlight-python"><pre>make latex</pre>
+</div>
+</div>
+<div class="section" id="web">
+<h3>4.5.4. 参考にさせて頂いたWebページ<a class="headerlink" href="#web" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://sphinx-users.jp/doc10/">Sphinx 1.0</a></li>
+<li><a class="reference external" href="http://sphinx-users.jp/doc.html">Sphinx-Users.jp</a></li>
+<li><a class="reference external" href="http://sphinx-users.jp/gettingstarted/install_windows.html#sphinx">Windowsへのインストール</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/w650/20100216/1266287625">config.pyのPDF用設定</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/MiCHiLU/20091009/1255065687">Makefileの修正</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>4.6. ToDo<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>テンプレートをカスタマイズしてみる</li>
+<li>emacsからmakeできるようにする</li>
+</ol>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="rst2pdf.html">3. PDFを作成する</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="url.html">5. このページへのURL</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, Y.Chubachi.
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7 で生成しました。
+    </div>
+  </body>
+</html>

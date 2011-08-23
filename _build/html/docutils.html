@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. docutilsを使った文書作成 &mdash; reStructuredTextで快適Web生活 v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="reStructuredTextで快適Web生活 v0.1 documentation" href="index.html" />
+    <link rel="next" title="3. PDFを作成する" href="rst2pdf.html" />
+    <link rel="prev" title="1. reStructuredTextとは" href="overview.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>reStructuredTextで快適Web生活 v0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>2. docutilsを使った文書作成</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="overview.html">1. reStructuredTextとは</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="rst2pdf.html">3. PDFを作成する</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="docutils">
+<h1>2. docutilsを使った文書作成<a class="headerlink" href="#docutils" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="gnupack">
+<h2>2.1. gnupack環境をインストールと設定<a class="headerlink" href="#gnupack" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>簡単にcygwin環境とemacs等をインストールできるパッケージ，grupack <a class="footnote-reference" href="#f1" id="id1">[1]</a> をインストールします．
+ここでは，ユーザのホームディレクトリ（ C:\Users\&lt;name&gt;\ ） <a class="footnote-reference" href="#f2" id="id2">[2]</a> にインストールします．</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://sourceforge.jp/projects/gnupack/downloads/52709/gnupack_basic-7.00.exe/">gnupack-basic-7.00.exe</a> をダウンロードします</li>
+<li>ダブルクリックして実行します</li>
+<li>&#8220;解凍先&#8221;に C:\Users\&lt;name&gt;\ を指定します</li>
+</ol>
+<p>新たに， C:\Users\&lt;name&gt;\gnupack_basic-7.00 ディレクトリができます．
+その下にファイルが展開されていますので，確認してください．</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>gnupackにはbasic版とdevelop版があります．
+develop版のgccは今回利用しないので，basic版をインストールしてください．</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>\ は「￥」記号に読み替えてください．
+<em>&lt;name&gt;</em> の部分は，あなたのログイン名に置き換えてください.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cygwin">
+<h2>2.2. cygwin用パッケージ管理ツール<a class="headerlink" href="#cygwin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>cygwinにパッケージを追加するために， setup.exeをダウンロードします．</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://cygwin.com/setup.exe">setup.exe</a> をダウンロードします．</li>
+<li>ダウンロードしたファイルを C:\Users\&lt;name&gt;\gnupack_basic-7.00 ディレクトリにコピーしてください．</li>
+<li>また，同じ場所に&#8221;package&#8221;という名前でフォルダを作成してください．</li>
+</ol>
+<div class="section" id="id4">
+<h3>2.2.1. setup.exeの起動とディレクトリの指定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li>setup.exeを実行します．</li>
+<li>&#8220;次へ&#8221;でページをめくり，&#8221;Cygwin Setup - Choose Installation Directory&#8221;画面に進みます．</li>
+<li>&#8220;Root Directory&#8221;に C:\Users\&lt;name&gt;\gnupack_basic-7.00\app\cygwin\cygwin を指定してください．</li>
+<li>&#8220;次へ&#8221;でページをめくり，&#8221;Cygwin Setup - Select Local Package Directory&#8221;画面に進みます．</li>
+<li>&#8220;Local Package Directory&#8221;に C:\Users\&lt;name&gt;\gnupack_basic-7.00\package を指定してください．</li>
+<li>&#8220;次へ&#8221;でページをめくり，&#8221;Cygwin Setup - Choose Download Site(s)&#8221;画面に進みます．</li>
+<li>&#8220;<a class="reference external" href="ftp://ftp.iij.ad.jp">ftp://ftp.iij.ad.jp</a>&#8220;を選択してください</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>2.2.2. パッケージの選択<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まず，次のパッケージを追加します．</p>
+<ul class="simple">
+<li>Python</li>
+<li>curl</li>
+</ul>
+<ol class="arabic simple">
+<li>&#8220;次へ&#8221;でページをめくり，&#8221;Cygwin Setup - Select Packages&#8221;画面に進みます．</li>
+<li>&#8220;Search&#8221;に&#8221;python&#8221;と入力してください（画面が更新されるまでに若干ラグがあります）．</li>
+<li>&#8220;All:Interpreters&#8221;の中にある&#8221;python: Python language interpreter&#8221;の行にある&#8221;Skip&#8221;をクリックします（表示がバージョン番号に変わります）．</li>
+<li>&#8220;Search&#8221;に&#8221;curl&#8221;と入力してください．</li>
+<li>&#8220;All:Net&#8221;の中にある&#8221;curl: Multi-protocol file transfer command-line tool&#8221;の行にある&#8221;Skip&#8221;をクリックします（表示がバージョン番号に変わります）．</li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>2.2.3. パッケージのダウンロードとインストール<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li>&#8220;次へ&#8221;でページをめくり，&#8221;Cygwin Setup&#8221;画面に進みます．</li>
+<li>ダウンロードが終了すると，&#8221;Cygwin Setup - Installation Status and CReate Icons&#8221;画面がでます．</li>
+<li>&#8220;Crate icon on Desktop&#8221;のチェックは外して，&#8221;完了&#8221;を押してください．</li>
+</ol>
+</div>
+</div>
+<div class="section" id="python">
+<h2>2.3. python用パッケージ管理ツール<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>C:\Users\&lt;name&gt;\gnupack_basic-7.00\mintty.exe を起動して，コマンドプロンプトを表示させます．</li>
+<li>次のコマンドを実行してください．</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># curl -O http://peak.telecommunity.com/dist/ez_setup.py</span>
+<span class="c"># python ez_setup.py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>2.4. docutilsのインストール<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>rst2pdfはdocutilsをベースに作られています．</li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/tools.html">http://docutils.sourceforge.net/docs/user/tools.html</a></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># easy_install docutils</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>2.5. docutilsのテスト<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="rst">
+<h3>2.5.1. テスト用rstの作成<a class="headerlink" href="#rst" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>emacsを起動します．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># emacs test.rst &amp;</span>
+</pre></div>
+</div>
+<p>次の通り入力します．</p>
+<div class="highlight-python"><pre>タイトル
+========
+
+- ぐー
+- ちょき
+- ぱー</pre>
+</div>
+</div>
+<div class="section" id="rst2html">
+<h3>2.5.2. rst2htmlの実行<a class="headerlink" href="#rst2html" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># rst2html.py test.rst &gt; test.html</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="html">
+<h3>2.5.3. htmlの表示<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>結果</p>
+<div class="highlight-python"><pre>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;meta name="generator" content="Docutils 0.8: http://docutils.sourceforge.net/" /&gt;
+&lt;title&gt;タイトル&lt;/title&gt;
+&lt;style type="text/css"&gt;
+...省略...
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="document" id="id1"&gt;
+&lt;h1 class="title"&gt;タイトル&lt;/h1&gt;
+
+&lt;ul class="simple"&gt;
+&lt;li&gt;ぐー&lt;/li&gt;
+&lt;li&gt;ちょき&lt;/li&gt;
+&lt;li&gt;ぱー&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<p>任意のブラウザでtest.htmlを開き，内容を確認してください．</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>2.6. その他の文書生成<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="latex">
+<h3>2.6.1. LaTeXの生成<a class="headerlink" href="#latex" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>platexがインストールされている場合，以下のコマンドを入力することでLaTeXのソースファイルが生成され，コンパイルできます．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># rst2latex.py hoge.rst</span>
+<span class="c"># platex -kanji=utf8 hoge.tex</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="s5">
+<h3>2.6.2. S5スライドの生成<a class="headerlink" href="#s5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://meyerweb.com/eric/tools/s5/">http://meyerweb.com/eric/tools/s5/</a></li>
+<li><a class="reference external" href="http://meyerweb.com/eric/tools/s5/primer.html">http://meyerweb.com/eric/tools/s5/primer.html</a></li>
+</ul>
+</div>
+<div class="section" id="openoffice-writer">
+<h3>2.6.3. OpenOffice Writer形式ファイルの生成<a class="headerlink" href="#openoffice-writer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Writer形式で出力することもできます．日本語が乱れますので，使い物にはならないかも．</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># rst2odt.py hoge.rst &gt; hoge.odt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="overview.html">1. reStructuredTextとは</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="rst2pdf.html">3. PDFを作成する</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, Y.Chubachi.
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7 で生成しました。
+    </div>
+  </body>
+</html>
