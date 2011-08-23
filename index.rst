@@ -19,5 +19,6 @@ reStructuredTextで快適Web生活
    :hidden:
 
    replace
+   README
 
 `public link to this page <http://dl.dropbox.com/u/1312957/sphinx/rstmemo/_build/html/index.html>`_
