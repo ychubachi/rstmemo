@@ -253,6 +253,14 @@ Makefileを編集します．
 
   # cp ~/ja.json ~/sphinx/
 
+以下のコマンドで，PDFが作成されます．
+
+::
+
+  # make pdf
+
+このやり方で作ったPDF文書のサンプル( `rst2pdf版PDF <http://dl.dropbox.com/u/1312957/sphinx/rstmemo/pdf/Sphinxmemo-rst2pdf.pdf>`_ ）です．
+
 LaTeXを生成する
 ~~~~~~~~~~~~~~~
 docutilsを修正します．
@@ -283,6 +291,10 @@ latexの生成
 
   make latex
 
+
+これで，LaTeXファイルが出力されます．なお，実際にplatexにかけるときに現状ではいくつかのエラーが出るので，対処が必要です．
+
+このやり方で作ったPDF文書のサンプル( `LaTeX版PDF <http://dl.dropbox.com/u/1312957/sphinx/rstmemo/pdf/Sphinxmemo-latex.pdf>`_ ）です．
 
 参考にさせて頂いたWebページ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
