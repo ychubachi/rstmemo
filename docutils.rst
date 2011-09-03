@@ -70,6 +70,8 @@ python用パッケージ管理ツール
 
 #. |mintty| を起動して，コマンドプロンプトを表示させます．
 #. 次のコマンドを実行してください．
+#. python ez_setup.pyでエラーが出る場合は、C:\Users\*<name>*\gnupack_basic-7.00\homeにez_setup.pyを保存してください。
+#. （ブラウザでhttp://peak.telecommunity.com/dist/ez_setup.pyを開き、保存する）
 
 ::
 
